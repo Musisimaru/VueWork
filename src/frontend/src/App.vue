@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import AppLayout from '@/layouts/AppLayoutMainSidebar';
+import AppLayout from '@/layouts/AppLayout';
 
 export default {
   name: 'App',

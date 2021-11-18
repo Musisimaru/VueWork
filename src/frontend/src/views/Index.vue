@@ -12,11 +12,12 @@
           Добавить столбец
         </button>
       </div>
-      // Блок фильтров.
+      <!-- // Блок фильтров. -->
       <div class="desk__filters">
         <div class="desk__user-filter">
           <ul class="user-filter">
-            // Отрисовываем аватарки пользователей для фильтров.
+            <!-- // Отрисовываем аватарки пользователей
+            для фильтров. -->
             <li
               v-for="user in users"
               :key="user.id"
@@ -35,9 +36,10 @@
           </ul>
         </div>
         <div class="desk__meta-filter">
-          // Блок фильтров по статусам
+          <!-- // Блок фильтров по статусам -->
           <ul class="meta-filter">
-            // Используем деструктуризацию для доступа к свойствам статуса.
+            <!-- // Используем деструктуризацию для доступа к
+            свойствам статуса. -->
             <li
               v-for="({ value, label }) in statuses"
               :key="value"
@@ -53,13 +55,13 @@
         </div>
       </div>
     </div>
-    // Если колонок нет - мы покажем доп информацию ниже.
+    <!-- // Если колонок нет - мы покажем доп информацию ниже. -->
     <div
       v-if="columns.length"
       ref="columns"
       class="desk__columns"
     >
-      // Отрисовываем список колонок
+      <!-- // Отрисовываем список колонок -->
       <div
         v-for="column in columns"
         :key="column.id"
@@ -70,14 +72,15 @@
         </h2>
 
         <div class="column__target-area">
-          // Отрисовываем задачи для каждой колонки.
+          <!-- // Отрисовываем задачи для каждой колонки. -->
           <div
             v-for="task in columnTasks[column.id]"
             :key="task.id"
             class="column__task"
           >
             <div class="task">
-              // Если у задачи есть ответственный - выводим информацию о нем
+              <!-- // Если у задачи есть ответственный -
+              выводим информацию о нем -->
               <div
                 v-if="task.user"
                 class="task__user"
@@ -93,7 +96,7 @@
                 {{ task.user.name }}
               </div>
 
-              // Назначаем динамические классы для статусов.
+              <!-- // Назначаем динамические классы для статусов. -->
               <div class="task__statuses">
                 <span
                   v-if="task.status"
@@ -133,7 +136,7 @@
         </div>
       </div>
     </div>
-    // Если колонок нет - показываем инфо текст
+    <!-- // Если колонок нет - показываем инфо текст -->
     <p
       v-else
       class="desk__emptiness"
@@ -160,8 +163,8 @@ export default {
       columns,
       tasks: tasks.map(task => normalizeTask(task)),
       users,
-      statuses,
-      taskStatuses
+      statuses
+      // taskStatuses
     };
   },
   computed: {
