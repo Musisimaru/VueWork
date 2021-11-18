@@ -117,7 +117,7 @@
                 {{ task.title }}
               </h5>
 
-              // Отрисовываем список тегов внутри задачи.
+              <!-- // Отрисовываем список тегов внутри задачи. -->
               <ul
                 v-if="task.tags && task.tags.length"
                 class="task__tags"
@@ -187,8 +187,6 @@ export default {
 };
 </script>
 
-// Импортируем стили фильтров, колонок и задач отдельными файлами
-// Позже они будут вынесены в отдельные компоненты
 <style lang="scss" scoped>
 @import "~@/assets/scss/blocks/meta-filter.scss";
 @import "~@/assets/scss/blocks/user-filter.scss";

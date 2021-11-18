@@ -113,8 +113,8 @@ export default {
   data() {
     return {
       // получаем нормализованные задачи
-      tasks: tasks.map(task => normalizeTask(task)),
-      backlogIsHidden: false
+      tasks: tasks.map(task => normalizeTask(task))
+      //backlogIsHidden: false
     };
   },
   computed: {

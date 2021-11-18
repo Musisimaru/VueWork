@@ -1,6 +1,4 @@
 .backlog {
-  $bl: ".backlog";
-
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -10,6 +8,8 @@
   padding-top: 16px;
 
   background-color: $blue-gray-50;
+
+  $bl: ".backlog";
 
   &__title {
     position: relative;
