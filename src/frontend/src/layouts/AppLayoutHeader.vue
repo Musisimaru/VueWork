@@ -38,5 +38,5 @@ export default {
 // Используем scss препроцессор и scoped, чтобы ограничить область
 // влияния стилей текущим компонентом.
 <style lang="scss" scoped>
-// ...
+@import "~@/assets/scss/layout/header.scss";
 </style>

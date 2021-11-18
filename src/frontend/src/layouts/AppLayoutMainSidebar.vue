@@ -135,5 +135,5 @@ export default {
 
 <style lang="scss" scoped>
 @import "~@/assets/scss/blocks/task.scss";
-// ...
+@import "~@/assets/scss/blocks/baklog.scss";
 </style>

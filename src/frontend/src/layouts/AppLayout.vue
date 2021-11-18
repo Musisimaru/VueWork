@@ -22,3 +22,15 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+  .content {
+    display: flex;
+    flex-grow: 1;
+  }
+  .app-layout {
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+  }
+</style>

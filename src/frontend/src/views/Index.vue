@@ -194,4 +194,6 @@ export default {
 @import "~@/assets/scss/blocks/user-filter.scss";
 @import "~@/assets/scss/blocks/column.scss";
 @import "~@/assets/scss/blocks/task.scss";
+
+@import "~@/assets/scss/blocks/desk.scss";
 </style>
