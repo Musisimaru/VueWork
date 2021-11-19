@@ -1,0 +1,104 @@
+.desk {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  width: calc(100% - 400px);
+  padding-top: 27px;
+
+  background-color: $white-900;
+
+  &--rubber {
+    width: 100%;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+    padding: 0 17px;
+  }
+
+  &__header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+  }
+
+  &__title {
+    margin: 0;
+    margin-right: auto;
+
+    color: $black-900;
+
+    @include m-s24-h21;
+  }
+
+  &__add {
+    position: relative;
+
+    margin: 0;
+    padding: 0 0 0 35px;
+
+    cursor: pointer;
+
+    color: $blue-gray-600;
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    &::before {
+      width: 24px;
+      height: 24px;
+
+      content: '';
+
+      background-image: url('~@/assets/img/icon-add.svg');
+
+      @include p_center-v;
+    }
+
+    &:hover {
+      color: $blue-600;
+    }
+
+    &:active {
+      color: $blue-300;
+    }
+  }
+
+  &__filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  &__user-filter {
+    margin-right: 40px;
+  }
+
+  &__columns {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-grow: 1;
+
+    border-top: 1px solid $blue-gray-200;
+  }
+
+  &__emptiness {
+    margin: 0;
+    padding-left: 17px;
+
+    @include r-s14-h21;
+  }
+}
