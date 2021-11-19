@@ -1,3 +1,6 @@
+node_modules/
+build/
+
 # IDE settings
 .idea
 .DS_Store
