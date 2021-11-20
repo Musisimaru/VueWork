@@ -30,3 +30,28 @@ export const normalizeTask = task => {
     timeStatus: getTimeStatus(task.dueDate)
   };
 };
+
+export const addActive = (active, toTask, tasks) => {
+  const activeClone = cloneDeep(active);
+  const tasksClone = cloneDeep(tasks);
+  const activeIndex = tasksClone.findIndex(task => task.id === active.id);
+  if (~activeIndex) {
+    tasksClone.splice(activeIndex, 1);
+  }
+
+  tasksClone.sort((a, b) => a.sortOrder - b.sortOrder);
+
+  if (toTask) {
+    const toTaskIndex = tasksClone.findIndex(task => task.id === toTask.id);
+    tasksClone.splice(toTaskIndex, 0, activeClone);
+  } else {
+    tasksClone.push(activeClone);
+  }
+
+  return tasksClone;
+};
+
+
+export const getTargetColumnTasks = (toColumnId, tasks) => {
+  return tasks.filter(task => task.columnId === toColumnId);
+};
