@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <AppLayout
-      :tasks="tasks"
+      :tasks="filteredTasks"
       :filters="filters"
+      @updateTasks="updateTasks"
+      @applyFilters="applyFilters"
     />
   </div>
 </template>
@@ -54,6 +56,28 @@ export default {
           .every(([key, callback]) =>
             !this.filters[key].length || callback(task));
       });
+    }
+  },
+  methods: {
+    updateTasks(tasksToUpdate) {
+      tasksToUpdate.forEach(task => {
+        const index = this.tasks.findIndex(({ id }) => id === task.id);
+        if (~index) {
+          this.tasks.splice(index, 1, task);
+        }
+      });
+    },
+    applyFilters({ item, entity }) {
+      if (!Array.isArray(this.filters[entity])) {
+        this.filters[entity] = item;
+      } else {
+        const resultValues = [...this.filters[entity]];
+        const itemIndex = resultValues.findIndex(el => el === item);
+        ~itemIndex
+          ? resultValues.splice(itemIndex, 1)
+          : resultValues.push(item);
+        this.filters[entity] = resultValues;
+      }
     }
   }
 };
