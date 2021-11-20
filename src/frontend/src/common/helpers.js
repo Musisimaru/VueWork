@@ -1,6 +1,7 @@
 ﻿import { DAY_IN_MILLISEC, TAG_SEPARATOR } from '@/common/constants';
 import timeStatuses from '@/common/enums/timeStatuses';
 import taskStatuses from '@/common/enums/taskStatuses';
+import { cloneDeep } from 'lodash';
 
 // Получение тегов из строки тегов.
 export const getTagsArrayFromString = tags => {
