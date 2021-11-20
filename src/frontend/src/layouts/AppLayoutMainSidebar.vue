@@ -17,9 +17,6 @@
         <div class="backlog__collapse">
           <div class="backlog__user">
             <div class="backlog__account">
-              <!-- // Благодаря прокси дев сервера мы берём /public изображения
-              // с сервера, запущенного на порту 3000.
-              // В этом случае мы выбрали user6.jpg в качестве заглушки. -->
               <img
                 src="/public/user6.jpg"
                 alt="Ваш аватар"
@@ -29,7 +26,6 @@
               Игорь Пятин
             </div>
 
-            <!-- // выводим количество задач в шаблоне -->
             <div class="backlog__counter">
               {{ sidebarTasks.length }}
             </div>
@@ -51,10 +47,6 @@
   </AppDrop>
 </template>
 <script>
-// Список задач, из которого достанем задачи для сайдбара.
-import tasks from '@/static/tasks.json';
-// Вспомогательные функции для нормализации задач и тегов задач.
-import { normalizeTask, getTagsArrayFromString } from '@/common/helpers';
 import AppDrop from '@/common/components/AppDrop';
 import taskStatuses from '@/common/enums/taskStatuses';
 import TaskCard from '@/modules/tasks/components/TaskCard';
@@ -65,7 +57,7 @@ export default {
   name: 'AppLayoutMainSidebar',
   components: { TaskCard, AppDrop },
   props: {
-    asks: {
+    tasks: {
       type: Array,
       required: true
     },
@@ -81,9 +73,6 @@ export default {
     };
   },
   computed: {
-    // Выбираем только задачи без id колонки (у нас это именно задачи сайдбара).
-    // Нормализуем список тегов.
-    // Сортируем задачи по их порядку внутри колонки.
     sidebarTasks() {
       return this.tasks
         .filter(task => !task.columnId)
@@ -96,11 +85,13 @@ export default {
       if (toTask && active.id === toTask.id) {
         return;
       }
+
       const toColumnId = this.column ? this.column.id : null;
       const targetColumnTasks = getTargetColumnTasks(toColumnId, this.tasks);
       const activeClone = cloneDeep({ ...active, columnId: toColumnId });
       const resultTasks = addActive(activeClone, toTask, targetColumnTasks);
       const tasksToUpdate = [];
+
       resultTasks.forEach((task, index) => {
         if (task.sortOrder !== index || task.id === active.id) {
           const newTask = cloneDeep({ ...task, sortOrder: index });

@@ -93,10 +93,8 @@
 <script>
 // Импортируем JSON данные и статусы для фильтров.
 import columns from '@/static/columns.json';
-import tasks from '@/static/tasks.json';
 import users from '@/static/users.json';
 import { statuses } from '@/common/constants';
-import { getTagsArrayFromString, normalizeTask } from '@/common/helpers';
 import taskStatuses from '@/common/enums/taskStatuses';
 
 import DeskColumn from '@/modules/columns/components/DeskColumn';
